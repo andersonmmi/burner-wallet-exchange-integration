@@ -188,7 +188,7 @@ if (ERC20NAME == "BUFF") {
   mainStyle.backgroundColor = "#20012d";
   mainStyle.mainColor = "#b6299e";
   mainStyle.mainColorAlt = "#de3ec3";
-  title = "BuffiDai.io";
+  title = "uzb.cash";
   titleImage = (
     <img
       src={bufficorn}
