@@ -106,7 +106,8 @@ if (
   XDAI_PROVIDER = "http://localhost:8545";
   WEB3_PROVIDER = "http://localhost:8545";
   CLAIM_RELAY = "http://localhost:18462";
-  if (true) {
+  // @Aaron stet back to true when done
+  if (false) {
     ERC20NAME = false;
     ERC20TOKEN = false;
     ERC20IMAGE = false;
@@ -121,6 +122,15 @@ if (
     WEB3_PROVIDER = "http://localhost:8545";
     LOADERIMAGE = bufficorn;
   }
+} else if (window.location.hostname.indexOf("uzb.cash") >= 0) {
+  // @Aaron this is the uzb.cash config
+  ERC20NAME = "BUFF";
+  ERC20VENDOR = "VendingMachine";
+  ERC20TOKEN = "ERC20Vendable";
+  ERC20IMAGE = bufficorn;
+  XDAI_PROVIDER = "http://localhost:8545";
+  WEB3_PROVIDER = "http://localhost:8545";
+  LOADERIMAGE = bufficorn;
 } else if (window.location.hostname.indexOf("s.xdai.io") >= 0) {
   WEB3_PROVIDER = POA_XDAI_NODE;
   CLAIM_RELAY = "https://x.xdai.io";
