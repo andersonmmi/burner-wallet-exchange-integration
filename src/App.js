@@ -116,7 +116,7 @@ if (
   } else {
     ERC20NAME = "txDai";
     ERC20VENDOR = "VendingMachine";
-    ERC20TOKEN = "ERC20txDai";
+    ERC20TOKEN = "txDai";
     ERC20IMAGE = bufficorn;
     XDAI_PROVIDER = "http://localhost:8545";
     WEB3_PROVIDER = "http://localhost:8545";
@@ -126,7 +126,7 @@ if (
   // @Aaron this is the uzb.cash config
   ERC20NAME = "txDai";
   ERC20VENDOR = "VendingMachine";
-  ERC20TOKEN = "ERC20txDai";
+  ERC20TOKEN = "txDai";
   ERC20IMAGE = bufficorn;
   XDAI_PROVIDER = "http://localhost:8545";
   WEB3_PROVIDER = "http://localhost:8545";
@@ -608,6 +608,7 @@ class App extends Component {
         "Getting balanceOf " + this.state.account + " in contract ",
         this.state.contracts[ERC20TOKEN]
       );
+      // debugger;
       let tokenBalance = await this.state.contracts[ERC20TOKEN].balanceOf(
         this.state.account
       ).call();
