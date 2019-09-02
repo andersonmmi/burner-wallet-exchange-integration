@@ -116,7 +116,7 @@ if (
   } else {
     ERC20NAME = "txDai";
     ERC20VENDOR = "VendingMachine";
-    ERC20TOKEN = "ERC20Vendable";
+    ERC20TOKEN = "ERC20txDai";
     ERC20IMAGE = bufficorn;
     XDAI_PROVIDER = "http://localhost:8545";
     WEB3_PROVIDER = "http://localhost:8545";
@@ -126,7 +126,7 @@ if (
   // @Aaron this is the uzb.cash config
   ERC20NAME = "txDai";
   ERC20VENDOR = "VendingMachine";
-  ERC20TOKEN = "ERC20Vendable";
+  ERC20TOKEN = "ERC20txDai";
   ERC20IMAGE = bufficorn;
   XDAI_PROVIDER = "http://localhost:8545";
   WEB3_PROVIDER = "http://localhost:8545";
@@ -595,6 +595,8 @@ class App extends Component {
     //console.log(">>>>>>> <<< >>>>>> Looking into iframe...")
     //console.log(document.getElementById('galleassFrame').contentWindow['web3'])
 
+    // @Aaron make sure this block of code can read txDai contract
+    // @Aaron then comment out logs
     if (
       ERC20TOKEN &&
       this.state.contracts &&
@@ -602,37 +604,40 @@ class App extends Component {
     ) {
       let gasBalance = await this.state.web3.eth.getBalance(this.state.account);
       gasBalance = this.state.web3.utils.fromWei("" + gasBalance, "ether");
-      //console.log("Getting balanceOf "+this.state.account+" in contract ",this.state.contracts[ERC20TOKEN])
+      console.log(
+        "Getting balanceOf " + this.state.account + " in contract ",
+        this.state.contracts[ERC20TOKEN]
+      );
       let tokenBalance = await this.state.contracts[ERC20TOKEN].balanceOf(
         this.state.account
       ).call();
-      //console.log("balance is ",tokenBalance)
+      console.log("balance is ", tokenBalance);
       tokenBalance = this.state.web3.utils.fromWei("" + tokenBalance, "ether");
 
-      //console.log("Getting admin from ",this.state.contracts[ERC20VENDOR])
+      console.log("Getting admin from ", this.state.contracts[ERC20VENDOR]);
       let isAdmin = await this.state.contracts[ERC20VENDOR].isAdmin(
         this.state.account
       ).call();
-      //console.log("ISADMIN",this.state.account,isAdmin)
+      console.log("ISADMIN", this.state.account, isAdmin);
       let isVendor = await this.state.contracts[ERC20VENDOR].vendors(
         this.state.account
       ).call();
-      //console.log("isVendor",isVendor)
+      console.log("isVendor", isVendor);
 
       let vendorObject = this.state.vendorObject;
       let products = []; //this.state.products
       if (isVendor.isAllowed) {
-        //console.log("LOADING VENDOR PRODUCTS")
+        console.log("LOADING VENDOR PRODUCTS");
         let id = 0;
         if (!vendorObject) {
           let vendorData = await this.state.contracts[ERC20VENDOR].vendors(
             this.state.account
           ).call();
-          //console.log("vendorData",vendorData)
+          console.log("vendorData", vendorData);
           vendorData.name = this.state.web3.utils.hexToUtf8(vendorData.name);
           vendorObject = vendorData;
         }
-        //console.log("Looking up products for vendor ",this.state.account)
+        console.log("Looking up products for vendor ", this.state.account);
         if (!products) {
           products = [];
         }
@@ -649,7 +654,7 @@ class App extends Component {
           }
         }
       }
-      //console.log("isVendor",isVendor,"SAVING PRODUCTS",products)
+      console.log("isVendor", isVendor, "SAVING PRODUCTS", products);
 
       this.setState({
         gasBalance: gasBalance,
