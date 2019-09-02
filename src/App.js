@@ -114,7 +114,7 @@ if (
     // @Aaron attempt to check for specific token balances, then set ERC20TOKEN
     // @Aaron it doesn't get here yet
   } else {
-    ERC20NAME = "BUFF";
+    ERC20NAME = "txDai";
     ERC20VENDOR = "VendingMachine";
     ERC20TOKEN = "ERC20Vendable";
     ERC20IMAGE = bufficorn;
@@ -124,7 +124,7 @@ if (
   }
 } else if (window.location.hostname.indexOf("uzb.cash") >= 0) {
   // @Aaron this is the uzb.cash config
-  ERC20NAME = "BUFF";
+  ERC20NAME = "txDai";
   ERC20VENDOR = "VendingMachine";
   ERC20TOKEN = "ERC20Vendable";
   ERC20IMAGE = bufficorn;
@@ -166,6 +166,24 @@ if (
 }
 
 if (ERC20NAME == "BUFF") {
+  mainStyle.backgroundImage = "linear-gradient(#540d48, #20012d)";
+  mainStyle.backgroundColor = "#20012d";
+  mainStyle.mainColor = "#b6299e";
+  mainStyle.mainColorAlt = "#de3ec3";
+  title = "BuffiDai.io";
+  titleImage = (
+    <img
+      src={bufficorn}
+      style={{
+        maxWidth: 50,
+        maxHeight: 50,
+        marginRight: 15,
+        marginTop: -10
+      }}
+    />
+  );
+} else if (ERC20NAME === "txDai") {
+  // @Aaron same as "BUFF" but for uzb.cash && txDai
   mainStyle.backgroundImage = "linear-gradient(#540d48, #20012d)";
   mainStyle.backgroundColor = "#20012d";
   mainStyle.mainColor = "#b6299e";
