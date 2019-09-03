@@ -122,11 +122,10 @@ if (
 } else if (window.location.hostname.indexOf("uzb.cash") >= 0) {
   // @Aaron this is the uzb.cash config
   ERC20NAME = "txDai";
-  ERC20VENDOR = "VendingMachine";
   ERC20TOKEN = "txDai";
   ERC20IMAGE = bufficorn;
-  XDAI_PROVIDER = "http://localhost:8545";
-  WEB3_PROVIDER = "http://localhost:8545";
+  XDAI_PROVIDER = "https://dai.poa.network";
+  WEB3_PROVIDER = POA_XDAI_NODE;
   LOADERIMAGE = bufficorn;
 } else if (window.location.hostname.indexOf("s.xdai.io") >= 0) {
   WEB3_PROVIDER = POA_XDAI_NODE;
