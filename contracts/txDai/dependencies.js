@@ -7,12 +7,6 @@ module.exports = {
       "utf8"
     )
   },
-  "node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol": {
-    content: fs.readFileSync(
-      "./node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol",
-      "utf8"
-    )
-  },
   "node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20.sol": {
     content: fs.readFileSync(
       "./node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20.sol",
