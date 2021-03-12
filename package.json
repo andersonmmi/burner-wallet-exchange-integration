@@ -61,7 +61,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-dev-utils": "^8.0.0",
+    "react-dev-utils": "^11.0.4",
     "chai": "^4.2.0",
     "clevis": "^0.2.11",
     "mocha": "^5.2.0",
